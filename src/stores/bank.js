@@ -44,6 +44,9 @@ export const useBankStore = defineStore('bank', {
 
                 return data.user
             } catch (error) {
+                if (error.message === 'Failed to fetch') {
+                    throw new Error('無法連接伺服器，請確認後端服務是否已啟動')
+                }
                 throw new Error(error.message || '註冊失敗')
             }
         },
@@ -74,6 +77,9 @@ export const useBankStore = defineStore('bank', {
 
                 return data.user
             } catch (error) {
+                if (error.message === 'Failed to fetch') {
+                    throw new Error('無法連接伺服器，請確認後端服務是否已啟動')
+                }
                 throw new Error(error.message || '登入失敗')
             }
         },
