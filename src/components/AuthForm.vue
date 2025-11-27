@@ -1,29 +1,39 @@
 <template>
   <div class="auth-container">
     <h2>{{ isLoginMode ? '帳戶登入' : '帳戶註冊' }}</h2>
-    
+
     <div v-if="errorMessage" class="error-message">{{ errorMessage }}</div>
     <div v-if="successMessage" class="success-message">{{ successMessage }}</div>
 
     <div v-if="!isLoginMode" class="form-group">
       <label>真實姓名</label>
-      <input v-model="realName" type="text" placeholder="請輸入真實姓名">
+      <input v-model="realName" type="text" placeholder="請輸入真實姓名" />
     </div>
 
     <div class="form-group">
       <label>{{ isLoginMode ? '登入帳號' : '設定登入帳號' }}</label>
-      <input v-model="loginId" type="text" :placeholder="isLoginMode ? '請輸入登入帳號' : '請設定登入帳號（英文或數字）'">
+      <input
+        v-model="loginId"
+        type="text"
+        :placeholder="isLoginMode ? '請輸入登入帳號' : '請設定登入帳號（英文或數字）'"
+      />
       <div v-if="!isLoginMode" class="input-hint">此帳號用於登入系統，請妥善保管</div>
     </div>
 
     <div class="form-group">
       <label>密碼</label>
-      <input v-model="password" type="password" placeholder="請輸入密碼">
+      <input v-model="password" type="password" placeholder="請輸入密碼" />
     </div>
 
     <div v-if="!isLoginMode" class="form-group">
       <label>初始存款金額</label>
-      <input v-model="initialDeposit" type="number" min="0" step="0.01" placeholder="請輸入初始金額">
+      <input
+        v-model="initialDeposit"
+        type="number"
+        min="0"
+        step="0.01"
+        placeholder="請輸入初始金額"
+      />
     </div>
 
     <button @click="handleSubmit" class="btn">
@@ -47,7 +57,7 @@ export default {
       password: '',
       initialDeposit: 1000,
       errorMessage: '',
-      successMessage: ''
+      successMessage: '',
     }
   },
   methods: {
@@ -72,7 +82,9 @@ export default {
         this.$emit('login', {
           loginId: this.loginId,
           password: this.password,
-          setError: (msg) => { this.errorMessage = msg }
+          setError: (msg) => {
+            this.errorMessage = msg
+          },
         })
       } else {
         // 註冊模式的額外驗證
@@ -92,7 +104,9 @@ export default {
           loginId: this.loginId,
           password: this.password,
           initialDeposit: deposit,
-          setError: (msg) => { this.errorMessage = msg },
+          setError: (msg) => {
+            this.errorMessage = msg
+          },
           setSuccess: (msg, bankAccountNumber) => {
             this.successMessage = msg + `\n您的銀行帳號為：${bankAccountNumber}`
             this.isLoginMode = true
@@ -100,11 +114,11 @@ export default {
             this.loginId = ''
             this.password = ''
             this.initialDeposit = 1000
-          }
+          },
         })
       }
-    }
-  }
+    },
+  },
 }
 </script>
 

@@ -1,8 +1,6 @@
 <template>
   <div class="dashboard-view">
-    <div v-if="!currentUser" class="loading">
-      載入中...
-    </div>
+    <div v-if="!currentUser" class="loading">載入中...</div>
     <template v-else>
       <Dashboard
         :current-user="currentUser"
@@ -11,14 +9,9 @@
         @open-modal="openModal"
       />
 
-      <SubAccountManager
-        v-if="currentUser.subAccounts"
-        :sub-accounts="currentUser.subAccounts"
-      />
+      <SubAccountManager v-if="currentUser.subAccounts" :sub-accounts="currentUser.subAccounts" />
 
-      <TransactionCharts
-        :transactions="currentUserTransactions"
-      />
+      <TransactionCharts :transactions="currentUserTransactions" />
 
       <TransactionModal
         :show="showModal"
@@ -48,17 +41,21 @@ export default {
     Dashboard,
     TransactionModal,
     TransactionCharts,
-    SubAccountManager
+    SubAccountManager,
   },
   data() {
     return {
       showModal: false,
       modalType: '',
-      modalError: ''
+      modalError: '',
     }
   },
   computed: {
-    ...mapState(useBankStore, ['currentUser', 'currentUserTransactions', 'favoriteAccountsDetails'])
+    ...mapState(useBankStore, [
+      'currentUser',
+      'currentUserTransactions',
+      'favoriteAccountsDetails',
+    ]),
   },
   beforeMount() {
     // 如果未登入，重定向到登入頁
@@ -118,8 +115,8 @@ export default {
 
     removeFavorite(accountNumber) {
       this.removeFavoriteAccount(accountNumber)
-    }
-  }
+    },
+  },
 }
 </script>
 

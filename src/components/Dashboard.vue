@@ -6,14 +6,9 @@
     </div>
 
     <div class="dashboard-grid">
-      <AccountInfo 
-        :current-user="currentUser" 
-        @open-modal="onOpenModal"
-      />
-      
-      <TransactionList 
-        :transactions="transactions" 
-      />
+      <AccountInfo :current-user="currentUser" @open-modal="onOpenModal" />
+
+      <TransactionList :transactions="transactions" />
     </div>
   </div>
 </template>
@@ -26,18 +21,18 @@ export default {
   name: 'Dashboard',
   components: {
     AccountInfo,
-    TransactionList
+    TransactionList,
   },
   emits: ['logout', 'open-modal'],
   props: {
     currentUser: {
       type: Object,
-      required: true
+      required: true,
     },
     transactions: {
       type: Array,
-      default: () => []
-    }
+      default: () => [],
+    },
   },
   methods: {
     onLogoutClick() {
@@ -47,8 +42,8 @@ export default {
     onOpenModal(type) {
       console.log('Dashboard: open-modal event received', type)
       this.$emit('open-modal', type)
-    }
-  }
+    },
+  },
 }
 </script>
 

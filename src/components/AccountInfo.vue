@@ -24,8 +24,8 @@ export default {
   props: {
     currentUser: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
   emits: ['open-modal'],
   computed: {
@@ -39,24 +39,26 @@ export default {
         return this.currentUser.subAccounts.reduce((sum, sub) => sum + sub.balance, 0)
       }
       return 0
-    }
+    },
   },
   methods: {
     formatAmount(amount) {
       if (amount === undefined || amount === null) return '0.00'
       return amount.toLocaleString('zh-TW', {
         minimumFractionDigits: 2,
-        maximumFractionDigits: 2
+        maximumFractionDigits: 2,
       })
     },
     formatAccountNumber(accountNumber) {
       // 格式化銀行帳號為 1234-5678-9012
       if (accountNumber && accountNumber.length === 12) {
-        return accountNumber.slice(0, 4) + '-' + accountNumber.slice(4, 8) + '-' + accountNumber.slice(8)
+        return (
+          accountNumber.slice(0, 4) + '-' + accountNumber.slice(4, 8) + '-' + accountNumber.slice(8)
+        )
       }
       return accountNumber
-    }
-  }
+    },
+  },
 }
 </script>
 

@@ -74,11 +74,7 @@
               <td>
                 <div class="action-buttons">
                   <button class="btn-edit" @click="editUser(user)">編輯</button>
-                  <button
-                    class="btn-toggle"
-                    :class="user.status"
-                    @click="toggleStatus(user.id)"
-                  >
+                  <button class="btn-toggle" :class="user.status" @click="toggleStatus(user.id)">
                     {{ user.status === 'active' ? '凍結' : '解凍' }}
                   </button>
                   <button class="btn-delete" @click="confirmDelete(user)">刪除</button>
@@ -130,17 +126,17 @@
 
         <div class="form-group">
           <label>真實姓名</label>
-          <input v-model="editingUser.realName" type="text" disabled>
+          <input v-model="editingUser.realName" type="text" disabled />
         </div>
 
         <div class="form-group">
           <label>銀行帳號</label>
-          <input :value="formatAccountNumber(editingUser.id)" type="text" disabled>
+          <input :value="formatAccountNumber(editingUser.id)" type="text" disabled />
         </div>
 
         <div class="form-group">
           <label>當前餘額</label>
-          <input v-model.number="editingUser.balance" type="number" step="0.01">
+          <input v-model.number="editingUser.balance" type="number" step="0.01" />
         </div>
 
         <div class="modal-actions">
@@ -165,17 +161,17 @@ export default {
       editingUser: null,
       editError: '',
       allUsers: [],
-      allTransactions: []
+      allTransactions: [],
     }
   },
   computed: {
     ...mapState(useBankStore, ['currentUser']),
     activeUsers() {
-      return this.allUsers.filter(u => u.status === 'active').length
+      return this.allUsers.filter((u) => u.status === 'active').length
     },
     frozenUsers() {
-      return this.allUsers.filter(u => u.status === 'frozen').length
-    }
+      return this.allUsers.filter((u) => u.status === 'frozen').length
+    },
   },
   async mounted() {
     // 檢查是否為管理員
@@ -188,7 +184,14 @@ export default {
     await this.loadData()
   },
   methods: {
-    ...mapActions(useBankStore, ['logout', 'updateUserBalance', 'toggleUserStatus', 'deleteUser', 'getAllUsers', 'getAllTransactions']),
+    ...mapActions(useBankStore, [
+      'logout',
+      'updateUserBalance',
+      'toggleUserStatus',
+      'deleteUser',
+      'getAllUsers',
+      'getAllTransactions',
+    ]),
 
     async loadData() {
       this.allUsers = await this.getAllUsers()
@@ -204,7 +207,9 @@ export default {
 
     formatAccountNumber(accountNumber) {
       if (accountNumber && accountNumber.length === 12) {
-        return accountNumber.slice(0, 4) + '-' + accountNumber.slice(4, 8) + '-' + accountNumber.slice(8)
+        return (
+          accountNumber.slice(0, 4) + '-' + accountNumber.slice(4, 8) + '-' + accountNumber.slice(8)
+        )
       }
       return accountNumber
     },
@@ -212,12 +217,12 @@ export default {
     formatAmount(amount) {
       return amount.toLocaleString('zh-TW', {
         minimumFractionDigits: 2,
-        maximumFractionDigits: 2
+        maximumFractionDigits: 2,
       })
     },
 
     getUserName(userId) {
-      const user = this.allUsers.find(u => u.id === userId)
+      const user = this.allUsers.find((u) => u.id === userId)
       return user ? user.realName : '未知'
     },
 
@@ -268,8 +273,8 @@ export default {
           alert(error.message)
         }
       }
-    }
-  }
+    },
+  },
 }
 </script>
 

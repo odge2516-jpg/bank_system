@@ -1,9 +1,6 @@
 <template>
   <div class="login-view">
-    <AuthForm 
-      @login="handleLogin" 
-      @register="handleRegister" 
-    />
+    <AuthForm @login="handleLogin" @register="handleRegister" />
   </div>
 </template>
 
@@ -15,10 +12,10 @@ import AuthForm from '../components/AuthForm.vue'
 export default {
   name: 'LoginView',
   components: {
-    AuthForm
+    AuthForm,
   },
   computed: {
-    ...mapState(useBankStore, ['currentUser'])
+    ...mapState(useBankStore, ['currentUser']),
   },
   mounted() {
     // 如果已經登入，直接跳轉到儀表板
@@ -51,8 +48,8 @@ export default {
       } catch (error) {
         setError(error.message)
       }
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -62,6 +59,20 @@ export default {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f1f5f9;
+  background: linear-gradient(-45deg, #1e3a8a, #3b82f6, #667eea, #764ba2);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 </style>

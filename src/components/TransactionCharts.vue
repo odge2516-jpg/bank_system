@@ -16,7 +16,11 @@
       <div class="chart-card">
         <h4>交易類型分布</h4>
         <div class="chart-wrapper">
-          <Doughnut v-if="doughnutChartData" :data="doughnutChartData" :options="doughnutChartOptions" />
+          <Doughnut
+            v-if="doughnutChartData"
+            :data="doughnutChartData"
+            :options="doughnutChartOptions"
+          />
           <div v-else class="no-data">暫無交易資料</div>
         </div>
       </div>
@@ -71,7 +75,7 @@ import {
   Title,
   Tooltip,
   Legend,
-  Filler
+  Filler,
 } from 'chart.js'
 
 ChartJS.register(
@@ -84,7 +88,7 @@ ChartJS.register(
   Title,
   Tooltip,
   Legend,
-  Filler
+  Filler,
 )
 
 export default {
@@ -92,26 +96,24 @@ export default {
   components: {
     Line,
     Doughnut,
-    Bar
+    Bar,
   },
   props: {
     transactions: {
       type: Array,
-      default: () => []
-    }
+      default: () => [],
+    },
   },
   computed: {
     // 計算總收入
     totalIncome() {
-      return this.transactions
-        .filter(t => t.amount > 0)
-        .reduce((sum, t) => sum + t.amount, 0)
+      return this.transactions.filter((t) => t.amount > 0).reduce((sum, t) => sum + t.amount, 0)
     },
     // 計算總支出
     totalExpense() {
-      return Math.abs(this.transactions
-        .filter(t => t.amount < 0)
-        .reduce((sum, t) => sum + t.amount, 0))
+      return Math.abs(
+        this.transactions.filter((t) => t.amount < 0).reduce((sum, t) => sum + t.amount, 0),
+      )
     },
     // 計算淨收益
     netProfit() {
@@ -125,7 +127,7 @@ export default {
       const dailyData = this.getDailyData(last7Days)
 
       return {
-        labels: last7Days.map(date => this.formatDate(date)),
+        labels: last7Days.map((date) => this.formatDate(date)),
         datasets: [
           {
             label: '收入',
@@ -133,7 +135,7 @@ export default {
             borderColor: '#10b981',
             backgroundColor: 'rgba(16, 185, 129, 0.1)',
             fill: true,
-            tension: 0.4
+            tension: 0.4,
           },
           {
             label: '支出',
@@ -141,9 +143,9 @@ export default {
             borderColor: '#ef4444',
             backgroundColor: 'rgba(239, 68, 68, 0.1)',
             fill: true,
-            tension: 0.4
-          }
-        ]
+            tension: 0.4,
+          },
+        ],
       }
     },
     // 圓餅圖數據 - 交易類型分布
@@ -154,19 +156,14 @@ export default {
 
       return {
         labels: Object.keys(typeStats),
-        datasets: [{
-          data: Object.values(typeStats),
-          backgroundColor: [
-            '#10b981',
-            '#ef4444',
-            '#3b82f6',
-            '#f59e0b',
-            '#8b5cf6',
-            '#ec4899'
-          ],
-          borderWidth: 2,
-          borderColor: '#fff'
-        }]
+        datasets: [
+          {
+            data: Object.values(typeStats),
+            backgroundColor: ['#10b981', '#ef4444', '#3b82f6', '#f59e0b', '#8b5cf6', '#ec4899'],
+            borderWidth: 2,
+            borderColor: '#fff',
+          },
+        ],
       }
     },
     // 柱狀圖數據 - 每月收支
@@ -181,14 +178,14 @@ export default {
           {
             label: '收入',
             data: monthlyData.income,
-            backgroundColor: '#10b981'
+            backgroundColor: '#10b981',
           },
           {
             label: '支出',
             data: monthlyData.expense,
-            backgroundColor: '#ef4444'
-          }
-        ]
+            backgroundColor: '#ef4444',
+          },
+        ],
       }
     },
     // 圖表選項
@@ -198,24 +195,24 @@ export default {
         maintainAspectRatio: false,
         plugins: {
           legend: {
-            position: 'top'
+            position: 'top',
           },
           tooltip: {
             callbacks: {
               label: (context) => {
                 return `${context.dataset.label}: NT$ ${context.parsed.y.toLocaleString('zh-TW')}`
-              }
-            }
-          }
+              },
+            },
+          },
         },
         scales: {
           y: {
             beginAtZero: true,
             ticks: {
-              callback: (value) => 'NT$ ' + value.toLocaleString('zh-TW')
-            }
-          }
-        }
+              callback: (value) => 'NT$ ' + value.toLocaleString('zh-TW'),
+            },
+          },
+        },
       }
     },
     doughnutChartOptions() {
@@ -224,7 +221,7 @@ export default {
         maintainAspectRatio: false,
         plugins: {
           legend: {
-            position: 'right'
+            position: 'right',
           },
           tooltip: {
             callbacks: {
@@ -232,10 +229,10 @@ export default {
                 const total = context.dataset.data.reduce((a, b) => a + b, 0)
                 const percentage = ((context.parsed / total) * 100).toFixed(1)
                 return `${context.label}: ${context.parsed} 筆 (${percentage}%)`
-              }
-            }
-          }
-        }
+              },
+            },
+          },
+        },
       }
     },
     barChartOptions() {
@@ -244,32 +241,32 @@ export default {
         maintainAspectRatio: false,
         plugins: {
           legend: {
-            position: 'top'
+            position: 'top',
           },
           tooltip: {
             callbacks: {
               label: (context) => {
                 return `${context.dataset.label}: NT$ ${context.parsed.y.toLocaleString('zh-TW')}`
-              }
-            }
-          }
+              },
+            },
+          },
         },
         scales: {
           y: {
             beginAtZero: true,
             ticks: {
-              callback: (value) => 'NT$ ' + value.toLocaleString('zh-TW')
-            }
-          }
-        }
+              callback: (value) => 'NT$ ' + value.toLocaleString('zh-TW'),
+            },
+          },
+        },
       }
-    }
+    },
   },
   methods: {
     formatAmount(amount) {
       return Math.abs(amount).toLocaleString('zh-TW', {
         minimumFractionDigits: 2,
-        maximumFractionDigits: 2
+        maximumFractionDigits: 2,
       })
     },
     formatDate(date) {
@@ -289,11 +286,11 @@ export default {
       const income = new Array(7).fill(0)
       const expense = new Array(7).fill(0)
 
-      this.transactions.forEach(t => {
+      this.transactions.forEach((t) => {
         const transactionDate = new Date(t.timestamp)
         transactionDate.setHours(0, 0, 0, 0)
 
-        const dayIndex = days.findIndex(d => d.getTime() === transactionDate.getTime())
+        const dayIndex = days.findIndex((d) => d.getTime() === transactionDate.getTime())
         if (dayIndex !== -1) {
           if (t.amount > 0) {
             income[dayIndex] += t.amount
@@ -307,7 +304,7 @@ export default {
     },
     getTransactionTypeStats() {
       const stats = {}
-      this.transactions.forEach(t => {
+      this.transactions.forEach((t) => {
         stats[t.type] = (stats[t.type] || 0) + 1
       })
       return stats
@@ -315,7 +312,7 @@ export default {
     getMonthlyData() {
       const monthlyStats = {}
 
-      this.transactions.forEach(t => {
+      this.transactions.forEach((t) => {
         const date = new Date(t.timestamp)
         const monthKey = `${date.getFullYear()}/${date.getMonth() + 1}`
 
@@ -335,11 +332,11 @@ export default {
 
       return {
         labels: last6Months,
-        income: last6Months.map(m => monthlyStats[m].income),
-        expense: last6Months.map(m => monthlyStats[m].expense)
+        income: last6Months.map((m) => monthlyStats[m].income),
+        expense: last6Months.map((m) => monthlyStats[m].expense),
       }
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -360,14 +357,16 @@ export default {
   gap: 20px;
 }
 
-.chart-card, .stats-card {
+.chart-card,
+.stats-card {
   background: white;
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
-.chart-card h4, .stats-card h4 {
+.chart-card h4,
+.stats-card h4 {
   color: #334155;
   margin-bottom: 15px;
   font-size: 16px;

@@ -15,24 +15,19 @@
       >
         <div class="card-header">
           <div class="account-name-section">
-            <div
-              class="color-dot"
-              :style="{ backgroundColor: subAccount.color }"
-            ></div>
+            <div class="color-dot" :style="{ backgroundColor: subAccount.color }"></div>
             <h4>{{ subAccount.name }}</h4>
           </div>
           <div class="card-actions">
-            <button
-              class="btn-icon"
-              @click="openEditModal(subAccount)"
-              title="編輯名稱"
-            >✏️</button>
+            <button class="btn-icon" @click="openEditModal(subAccount)" title="編輯名稱">✏️</button>
             <button
               v-if="subAccounts.length > 1"
               class="btn-icon"
               @click="confirmDelete(subAccount)"
               title="刪除"
-            >🗑️</button>
+            >
+              🗑️
+            </button>
           </div>
         </div>
 
@@ -43,10 +38,7 @@
           </div>
 
           <div class="action-buttons">
-            <button
-              class="btn-action btn-transfer"
-              @click="openTransferModal(subAccount)"
-            >
+            <button class="btn-action btn-transfer" @click="openTransferModal(subAccount)">
               轉入/轉出
             </button>
           </div>
@@ -67,7 +59,7 @@
             type="text"
             placeholder="例如：生活費、娛樂、繳稅等"
             maxlength="20"
-          >
+          />
         </div>
 
         <div class="form-group">
@@ -104,7 +96,7 @@
             type="text"
             placeholder="請輸入帳戶名稱"
             maxlength="20"
-          >
+          />
         </div>
 
         <div class="modal-actions">
@@ -123,11 +115,7 @@
         <div class="form-group">
           <label>從</label>
           <select v-model="transferFrom">
-            <option
-              v-for="sub in subAccounts"
-              :key="sub.id"
-              :value="sub.id"
-            >
+            <option v-for="sub in subAccounts" :key="sub.id" :value="sub.id">
               {{ sub.name }} (餘額: NT$ {{ formatAmount(sub.balance) }})
             </option>
           </select>
@@ -155,7 +143,7 @@
             min="0.01"
             step="0.01"
             placeholder="請輸入轉帳金額"
-          >
+          />
         </div>
 
         <div class="modal-actions">
@@ -176,8 +164,8 @@ export default {
   props: {
     subAccounts: {
       type: Array,
-      default: () => []
-    }
+      default: () => [],
+    },
   },
   data() {
     return {
@@ -192,9 +180,15 @@ export default {
       transferAmount: null,
       modalError: '',
       availableColors: [
-        '#3b82f6', '#10b981', '#f59e0b', '#ef4444',
-        '#8b5cf6', '#ec4899', '#06b6d4', '#84cc16'
-      ]
+        '#3b82f6',
+        '#10b981',
+        '#f59e0b',
+        '#ef4444',
+        '#8b5cf6',
+        '#ec4899',
+        '#06b6d4',
+        '#84cc16',
+      ],
     }
   },
   methods: {
@@ -202,13 +196,13 @@ export default {
       'createSubAccount',
       'updateSubAccountName',
       'deleteSubAccount',
-      'transferBetweenSubAccounts'
+      'transferBetweenSubAccounts',
     ]),
 
     formatAmount(amount) {
       return amount.toLocaleString('zh-TW', {
         minimumFractionDigits: 2,
-        maximumFractionDigits: 2
+        maximumFractionDigits: 2,
       })
     },
 
@@ -263,7 +257,7 @@ export default {
 
     openTransferModal(subAccount) {
       this.transferFrom = subAccount.id
-      this.transferTo = this.subAccounts.find(s => s.id !== subAccount.id)?.id || null
+      this.transferTo = this.subAccounts.find((s) => s.id !== subAccount.id)?.id || null
       this.transferAmount = null
       this.showTransferModal = true
       this.modalError = ''
@@ -299,8 +293,8 @@ export default {
       } catch (error) {
         this.modalError = error.message
       }
-    }
-  }
+    },
+  },
 }
 </script>
 

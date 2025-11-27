@@ -22,7 +22,9 @@
                 class="remove-favorite"
                 @click.stop="$emit('remove-favorite', account.accountNumber)"
                 title="移除常用帳號"
-              >×</button>
+              >
+                ×
+              </button>
             </div>
           </div>
         </div>
@@ -36,28 +38,27 @@
             placeholder="請輸入12位數帳號（例如：1234-5678-9012）"
             maxlength="14"
             @input="formatAccountInput"
-          >
+          />
           <div class="input-hint">請輸入對方的銀行帳號</div>
         </div>
 
         <!-- 加入常用帳號選項 -->
         <div class="form-group">
           <label class="checkbox-label">
-            <input type="checkbox" v-model="saveAsFavorite">
+            <input type="checkbox" v-model="saveAsFavorite" />
             <span>加入常用帳號</span>
           </label>
         </div>
       </div>
 
       <!-- 子帳戶選擇（存款/提款時） -->
-      <div v-if="(type === 'deposit' || type === 'withdraw') && subAccounts.length > 0" class="form-group">
+      <div
+        v-if="(type === 'deposit' || type === 'withdraw') && subAccounts.length > 0"
+        class="form-group"
+      >
         <label>選擇子帳戶</label>
         <select v-model="selectedSubAccount">
-          <option
-            v-for="sub in subAccounts"
-            :key="sub.id"
-            :value="sub.id"
-          >
+          <option v-for="sub in subAccounts" :key="sub.id" :value="sub.id">
             {{ sub.name }} (餘額: NT$ {{ formatSubAccountBalance(sub.balance) }})
           </option>
         </select>
@@ -65,7 +66,13 @@
 
       <div class="form-group">
         <label>金額</label>
-        <input v-model="localAmount" type="number" min="0.01" step="0.01" placeholder="請輸入金額">
+        <input
+          v-model="localAmount"
+          type="number"
+          min="0.01"
+          step="0.01"
+          placeholder="請輸入金額"
+        />
       </div>
 
       <div class="modal-actions">
@@ -84,13 +91,13 @@ export default {
     type: String,
     favoriteAccounts: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     subAccounts: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
-    error: String
+    error: String,
   },
   emits: ['close', 'submit', 'remove-favorite'],
   data() {
@@ -98,7 +105,7 @@ export default {
       localAmount: '',
       localRecipientAccount: '',
       saveAsFavorite: false,
-      selectedSubAccount: null
+      selectedSubAccount: null,
     }
   },
   computed: {
@@ -106,10 +113,10 @@ export default {
       const titles = {
         deposit: '存款',
         withdraw: '提款',
-        transfer: '轉帳'
+        transfer: '轉帳',
       }
       return titles[this.type] || ''
-    }
+    },
   },
   watch: {
     show(val) {
@@ -120,13 +127,15 @@ export default {
         // 預設選擇第一個子帳戶
         this.selectedSubAccount = this.subAccounts.length > 0 ? this.subAccounts[0].id : null
       }
-    }
+    },
   },
   methods: {
     formatAccountNumber(accountNumber) {
       // 格式化為 1234-5678-9012
       if (accountNumber && accountNumber.length === 12) {
-        return accountNumber.slice(0, 4) + '-' + accountNumber.slice(4, 8) + '-' + accountNumber.slice(8)
+        return (
+          accountNumber.slice(0, 4) + '-' + accountNumber.slice(4, 8) + '-' + accountNumber.slice(8)
+        )
       }
       return accountNumber
     },
@@ -148,16 +157,16 @@ export default {
         amount: this.localAmount,
         recipientAccount: this.localRecipientAccount,
         saveAsFavorite: this.saveAsFavorite,
-        subAccountId: this.selectedSubAccount
+        subAccountId: this.selectedSubAccount,
       })
     },
     formatSubAccountBalance(balance) {
       return balance.toLocaleString('zh-TW', {
         minimumFractionDigits: 2,
-        maximumFractionDigits: 2
+        maximumFractionDigits: 2,
       })
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -199,7 +208,8 @@ export default {
   font-weight: 500;
 }
 
-.form-group input, select {
+.form-group input,
+select {
   width: 100%;
   padding: 12px;
   border: 2px solid #e2e8f0;
@@ -208,7 +218,8 @@ export default {
   background: white;
 }
 
-.form-group input:focus, select:focus {
+.form-group input:focus,
+select:focus {
   outline: none;
   border-color: #667eea;
 }
@@ -267,7 +278,7 @@ export default {
   user-select: none;
 }
 
-.checkbox-label input[type="checkbox"] {
+.checkbox-label input[type='checkbox'] {
   width: auto;
   cursor: pointer;
 }

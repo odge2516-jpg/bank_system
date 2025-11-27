@@ -14,7 +14,7 @@ export default {
     store.$subscribe((mutation, state) => {
       localStorage.setItem('bank_system_data', JSON.stringify(state))
     })
-  }
+  },
 }
 </script>
 

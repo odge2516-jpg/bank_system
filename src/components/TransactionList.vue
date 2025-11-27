@@ -6,12 +6,18 @@
         <div class="transaction-info">
           <div class="transaction-type">{{ transaction.type }}</div>
           <div class="transaction-time">{{ transaction.time }}</div>
-          <div v-if="transaction.note" style="font-size: 12px; color: #64748b; margin-top: 4px;">
+          <div v-if="transaction.note" style="font-size: 12px; color: #64748b; margin-top: 4px">
             {{ transaction.note }}
           </div>
         </div>
-        <div :class="['transaction-amount', transaction.amount > 0 ? 'amount-positive' : 'amount-negative']">
-          {{ transaction.amount > 0 ? '+' : '' }}NT$ {{ formatAmount(Math.abs(transaction.amount)) }}
+        <div
+          :class="[
+            'transaction-amount',
+            transaction.amount > 0 ? 'amount-positive' : 'amount-negative',
+          ]"
+        >
+          {{ transaction.amount > 0 ? '+' : '' }}NT$
+          {{ formatAmount(Math.abs(transaction.amount)) }}
         </div>
       </div>
     </div>
@@ -27,17 +33,17 @@ export default {
   props: {
     transactions: {
       type: Array,
-      default: () => []
-    }
+      default: () => [],
+    },
   },
   methods: {
     formatAmount(amount) {
       return amount.toLocaleString('zh-TW', {
         minimumFractionDigits: 2,
-        maximumFractionDigits: 2
+        maximumFractionDigits: 2,
       })
-    }
-  }
+    },
+  },
 }
 </script>
 
