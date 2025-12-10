@@ -31,7 +31,7 @@
         v-model="initialDeposit"
         type="number"
         min="0"
-        step="0.01"
+        step="100"
         placeholder="請輸入初始金額"
       />
     </div>

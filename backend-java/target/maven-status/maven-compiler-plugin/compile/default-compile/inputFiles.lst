@@ -1,0 +1,14 @@
+D:\atms\bank-system\backend-java\src\main\java\com\bank\system\service\BankService.java
+D:\atms\bank-system\backend-java\src\main\java\com\bank\system\repository\FavoriteAccountRepository.java
+D:\atms\bank-system\backend-java\src\main\java\com\bank\system\dto\BankDTOs.java
+D:\atms\bank-system\backend-java\src\main\java\com\bank\system\repository\UserRepository.java
+D:\atms\bank-system\backend-java\src\main\java\com\bank\system\entity\FavoriteAccount.java
+D:\atms\bank-system\backend-java\src\main\java\com\bank\system\config\CorsConfig.java
+D:\atms\bank-system\backend-java\src\main\java\com\bank\system\entity\User.java
+D:\atms\bank-system\backend-java\src\main\java\com\bank\system\entity\SubAccount.java
+D:\atms\bank-system\backend-java\src\main\java\com\bank\system\BankSystemApplication.java
+D:\atms\bank-system\backend-java\src\main\java\com\bank\system\entity\Transaction.java
+D:\atms\bank-system\backend-java\src\main\java\com\bank\system\repository\SubAccountRepository.java
+D:\atms\bank-system\backend-java\src\main\java\com\bank\system\controller\BankController.java
+D:\atms\bank-system\backend-java\src\main\java\com\bank\system\entity\FavoriteAccountId.java
+D:\atms\bank-system\backend-java\src\main\java\com\bank\system\repository\TransactionRepository.java

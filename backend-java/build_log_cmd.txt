@@ -1,0 +1,647 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------------< com.bank:system >---------------------------
+[INFO] Building bank-system 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.3.2:clean (default-clean) @ system ---
+[INFO] Deleting D:\atms\bank-system\backend-java\target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ system ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ system ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 13 source files with javac [debug release 17] to target\classes
+[INFO] Annotation processing is enabled because one or more processors were found
+  on the class path. A future release of javac may disable annotation processing
+  unless at least one processor is specified by name (-processor), or a search
+  path is specified (--processor-path, --processor-module-path), or annotation
+  processing is enabled explicitly (-proc:only, -proc:full).
+  Use -Xlint:-options to suppress this message.
+  Use -proc:none to disable annotation processing.
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/entity/SubAccount.java:[18,13] cannot access com.bank.system.entity.User
+  bad source file: D:\atms\bank-system\backend-java\src\main\java\com\bank\system\entity\User.java
+    file does not contain class com.bank.system.entity.User
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/repository/UserRepository.java:[8,55] cannot find symbol
+  symbol: class User
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/repository/UserRepository.java:[9,14] cannot find symbol
+  symbol:   class User
+  location: interface com.bank.system.repository.UserRepository
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/repository/UserRepository.java:[10,10] cannot find symbol
+  symbol:   class User
+  location: interface com.bank.system.repository.UserRepository
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[24,12] cannot find symbol
+  symbol:   class User
+  location: class com.bank.system.service.BankService
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[57,12] cannot find symbol
+  symbol:   class User
+  location: class com.bank.system.service.BankService
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/controller/BankController.java:[27,13] cannot find symbol
+  symbol:   class User
+  location: class com.bank.system.controller.BankController
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/controller/BankController.java:[40,13] cannot find symbol
+  symbol:   class User
+  location: class com.bank.system.controller.BankController
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/controller/BankController.java:[58,63] invalid method reference
+  cannot find symbol
+    symbol:   method getFavoriteUserId()
+    location: class com.bank.system.entity.FavoriteAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/controller/BankController.java:[69,13] cannot find symbol
+  symbol:   class User
+  location: class com.bank.system.controller.BankController
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/controller/BankController.java:[83,63] invalid method reference
+  cannot find symbol
+    symbol:   method getFavoriteUserId()
+    location: class com.bank.system.entity.FavoriteAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/controller/BankController.java:[162,30] cannot find symbol
+  symbol:   method getUserId()
+  location: variable req of type com.bank.system.dto.BankDTOs.FavoriteAccountRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/controller/BankController.java:[163,38] cannot find symbol
+  symbol:   method getFavoriteUserId()
+  location: variable req of type com.bank.system.dto.BankDTOs.FavoriteAccountRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/controller/BankController.java:[180,74] cannot find symbol
+  symbol:   class FavoriteAccountId
+  location: class com.bank.system.controller.BankController
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/controller/BankController.java:[194,40] cannot find symbol
+  symbol:   method getFavoriteUserId()
+  location: variable fav of type com.bank.system.entity.FavoriteAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/controller/BankController.java:[208,14] cannot find symbol
+  symbol:   class User
+  location: class com.bank.system.controller.BankController
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[25,45] cannot find symbol
+  symbol:   method getLoginId()
+  location: variable req of type com.bank.system.dto.BankDTOs.RegisterRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[37,9] cannot find symbol
+  symbol:   class User
+  location: class com.bank.system.service.BankService
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[37,25] cannot find symbol
+  symbol:   class User
+  location: class com.bank.system.service.BankService
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[39,28] cannot find symbol
+  symbol:   method getLoginId()
+  location: variable req of type com.bank.system.dto.BankDTOs.RegisterRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[40,29] cannot find symbol
+  symbol:   method getRealName()
+  location: variable req of type com.bank.system.dto.BankDTOs.RegisterRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[41,29] cannot find symbol
+  symbol:   method getPassword()
+  location: variable req of type com.bank.system.dto.BankDTOs.RegisterRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[47,19] cannot find symbol
+  symbol:   method setId(java.lang.String)
+  location: variable subAccount of type com.bank.system.entity.SubAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[49,19] cannot find symbol
+  symbol:   method setName(java.lang.String)
+  location: variable subAccount of type com.bank.system.entity.SubAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[50,34] cannot find symbol
+  symbol:   method getInitialDeposit()
+  location: variable req of type com.bank.system.dto.BankDTOs.RegisterRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[51,19] cannot find symbol
+  symbol:   method setColor(java.lang.String)
+  location: variable subAccount of type com.bank.system.entity.SubAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[58,9] cannot find symbol
+  symbol:   class User
+  location: class com.bank.system.service.BankService
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[58,53] cannot find symbol
+  symbol:   method getLoginId()
+  location: variable req of type com.bank.system.dto.BankDTOs.LoginRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[61,43] cannot find symbol
+  symbol:   method getPassword()
+  location: variable req of type com.bank.system.dto.BankDTOs.LoginRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[73,75] cannot find symbol
+  symbol:   method getSubAccountId()
+  location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[73,98] cannot find symbol
+  symbol:   method getUserId()
+  location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[76,41] cannot find symbol
+  symbol:   method getBalance()
+  location: variable subAccount of type com.bank.system.entity.SubAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[76,62] cannot find symbol
+  symbol:   method getAmount()
+  location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[80,31] cannot find symbol
+  symbol:   method getName()
+  location: variable subAccount of type com.bank.system.entity.SubAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[79,30] cannot find symbol
+  symbol:   method getUserId()
+  location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[79,53] cannot find symbol
+  symbol:   method getAmount()
+  location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[80,52] cannot find symbol
+  symbol:   method getSubAccountId()
+  location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[84,75] cannot find symbol
+  symbol:   method getSubAccountId()
+  location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[84,98] cannot find symbol
+  symbol:   method getUserId()
+  location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[87,23] cannot find symbol
+  symbol:   method getBalance()
+  location: variable subAccount of type com.bank.system.entity.SubAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[87,50] cannot find symbol
+  symbol:   method getAmount()
+  location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[91,41] cannot find symbol
+  symbol:   method getBalance()
+  location: variable subAccount of type com.bank.system.entity.SubAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[91,67] cannot find symbol
+  symbol:   method getAmount()
+  location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[95,30] cannot find symbol
+  symbol:   method getName()
+  location: variable subAccount of type com.bank.system.entity.SubAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[94,30] cannot find symbol
+  symbol:   method getUserId()
+  location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[94,53] cannot find symbol
+  symbol:   method getAmount()
+  location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[95,53] cannot find symbol
+  symbol:   method getSubAccountId()
+  location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[99,34] cannot find symbol
+  symbol:   method getRecipientAccountNumber()
+  location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[101,36] cannot find symbol
+  symbol:   method getUserId()
+  location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[105,9] cannot find symbol
+  symbol:   class User
+  location: class com.bank.system.service.BankService
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[108,96] cannot find symbol
+  symbol:   method getUserId()
+  location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[112,26] cannot find symbol
+  symbol:   method getBalance()
+  location: variable senderAccount of type com.bank.system.entity.SubAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[112,53] cannot find symbol
+  symbol:   method getAmount()
+  location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[120,47] cannot find symbol
+  symbol:   method getBalance()
+  location: variable senderAccount of type com.bank.system.entity.SubAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[120,73] cannot find symbol
+  symbol:   method getAmount()
+  location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[121,53] cannot find symbol
+  symbol:   method getBalance()
+  location: variable recipientAccount of type com.bank.system.entity.SubAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[121,74] cannot find symbol
+  symbol:   method getAmount()
+  location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[126,16] cannot find symbol
+  symbol:   method isSaveAsFavorite()
+  location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[128,30] cannot find symbol
+  symbol:   method getUserId()
+  location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[129,16] cannot find symbol
+  symbol:   method setFavoriteUserId(java.lang.String)
+  location: variable fav of type com.bank.system.entity.FavoriteAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[134,30] cannot find symbol
+  symbol:   method getUserId()
+  location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[134,55] cannot find symbol
+  symbol:   method getAmount()
+  location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[137,32] cannot find symbol
+  symbol:   method getUserId()
+  location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[137,101] cannot find symbol
+  symbol:   method getUserId()
+  location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[137,75] cannot find symbol
+  symbol:   method getUserId()
+  location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[138,52] cannot find symbol
+  symbol:   method getAmount()
+  location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[144,11] cannot find symbol
+  symbol:   method setId(java.lang.String)
+  location: variable tx of type com.bank.system.entity.Transaction
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[145,9] cannot find symbol
+  symbol:   class User
+  location: class com.bank.system.service.BankService
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[145,25] cannot find symbol
+  symbol:   class User
+  location: class com.bank.system.service.BankService
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[148,11] cannot find symbol
+  symbol:   method setType(java.lang.String)
+  location: variable tx of type com.bank.system.entity.Transaction
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[149,11] cannot find symbol
+  symbol:   method setAmount(java.math.BigDecimal)
+  location: variable tx of type com.bank.system.entity.Transaction
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[150,11] cannot find symbol
+  symbol:   method setNote(java.lang.String)
+  location: variable tx of type com.bank.system.entity.Transaction
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[151,11] cannot find symbol
+  symbol:   method setTime(java.lang.String)
+  location: variable tx of type com.bank.system.entity.Transaction
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[152,11] cannot find symbol
+  symbol:   method setTimestamp(long)
+  location: variable tx of type com.bank.system.entity.Transaction
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[153,11] cannot find symbol
+  symbol:   method setSubAccountId(java.lang.String)
+  location: variable tx of type com.bank.system.entity.Transaction
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[162,12] cannot find symbol
+  symbol:   method setId(java.lang.String)
+  location: variable sub of type com.bank.system.entity.SubAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[163,9] cannot find symbol
+  symbol:   class User
+  location: class com.bank.system.service.BankService
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[163,25] cannot find symbol
+  symbol:   class User
+  location: class com.bank.system.service.BankService
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[164,23] cannot find symbol
+  symbol:   method getUserId()
+  location: variable req of type com.bank.system.dto.BankDTOs.SubAccountRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[166,12] cannot find symbol
+  symbol:   method setName(req.getNam[...]6236")
+  location: variable sub of type com.bank.system.entity.SubAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[166,24] cannot find symbol
+  symbol:   method getName()
+  location: variable req of type com.bank.system.dto.BankDTOs.SubAccountRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[166,48] cannot find symbol
+  symbol:   method getName()
+  location: variable req of type com.bank.system.dto.BankDTOs.SubAccountRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[167,12] cannot find symbol
+  symbol:   method setBalance(java.math.BigDecimal)
+  location: variable sub of type com.bank.system.entity.SubAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[168,12] cannot find symbol
+  symbol:   method setColor(req.getCol[...]82f6")
+  location: variable sub of type com.bank.system.entity.SubAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[168,25] cannot find symbol
+  symbol:   method getColor()
+  location: variable req of type com.bank.system.dto.BankDTOs.SubAccountRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[168,50] cannot find symbol
+  symbol:   method getColor()
+  location: variable req of type com.bank.system.dto.BankDTOs.SubAccountRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[177,16] cannot find symbol
+  symbol:   method getBalance()
+  location: variable sub of type com.bank.system.entity.SubAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[184,69] cannot find symbol
+  symbol:   method getFromSubAccountId()
+  location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[184,96] cannot find symbol
+  symbol:   method getUserId()
+  location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[185,67] cannot find symbol
+  symbol:   method getToSubAccountId()
+  location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[185,92] cannot find symbol
+  symbol:   method getUserId()
+  location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[187,17] cannot find symbol
+  symbol:   method getBalance()
+  location: variable from of type com.bank.system.entity.SubAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[187,44] cannot find symbol
+  symbol:   method getAmount()
+  location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[189,29] cannot find symbol
+  symbol:   method getBalance()
+  location: variable from of type com.bank.system.entity.SubAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[189,55] cannot find symbol
+  symbol:   method getAmount()
+  location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[190,25] cannot find symbol
+  symbol:   method getBalance()
+  location: variable to of type com.bank.system.entity.SubAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[190,46] cannot find symbol
+  symbol:   method getAmount()
+  location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[196,24] cannot find symbol
+  symbol:   method getName()
+  location: variable from of type com.bank.system.entity.SubAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[196,48] cannot find symbol
+  symbol:   method getName()
+  location: variable to of type com.bank.system.entity.SubAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[196,74] cannot find symbol
+  symbol:   method getAmount()
+  location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[INFO] 100 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.857 s
+[INFO] Finished at: 2025-12-10T16:39:49+08:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (default-compile) on project system: Compilation failure: Compilation failure: 
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/entity/SubAccount.java:[18,13] cannot access com.bank.system.entity.User
+[ERROR]   bad source file: D:\atms\bank-system\backend-java\src\main\java\com\bank\system\entity\User.java
+[ERROR]     file does not contain class com.bank.system.entity.User
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/repository/UserRepository.java:[8,55] cannot find symbol
+[ERROR]   symbol: class User
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/repository/UserRepository.java:[9,14] cannot find symbol
+[ERROR]   symbol:   class User
+[ERROR]   location: interface com.bank.system.repository.UserRepository
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/repository/UserRepository.java:[10,10] cannot find symbol
+[ERROR]   symbol:   class User
+[ERROR]   location: interface com.bank.system.repository.UserRepository
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[24,12] cannot find symbol
+[ERROR]   symbol:   class User
+[ERROR]   location: class com.bank.system.service.BankService
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[57,12] cannot find symbol
+[ERROR]   symbol:   class User
+[ERROR]   location: class com.bank.system.service.BankService
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/controller/BankController.java:[27,13] cannot find symbol
+[ERROR]   symbol:   class User
+[ERROR]   location: class com.bank.system.controller.BankController
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/controller/BankController.java:[40,13] cannot find symbol
+[ERROR]   symbol:   class User
+[ERROR]   location: class com.bank.system.controller.BankController
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/controller/BankController.java:[58,63] invalid method reference
+[ERROR]   cannot find symbol
+[ERROR]     symbol:   method getFavoriteUserId()
+[ERROR]     location: class com.bank.system.entity.FavoriteAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/controller/BankController.java:[69,13] cannot find symbol
+[ERROR]   symbol:   class User
+[ERROR]   location: class com.bank.system.controller.BankController
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/controller/BankController.java:[83,63] invalid method reference
+[ERROR]   cannot find symbol
+[ERROR]     symbol:   method getFavoriteUserId()
+[ERROR]     location: class com.bank.system.entity.FavoriteAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/controller/BankController.java:[162,30] cannot find symbol
+[ERROR]   symbol:   method getUserId()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.FavoriteAccountRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/controller/BankController.java:[163,38] cannot find symbol
+[ERROR]   symbol:   method getFavoriteUserId()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.FavoriteAccountRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/controller/BankController.java:[180,74] cannot find symbol
+[ERROR]   symbol:   class FavoriteAccountId
+[ERROR]   location: class com.bank.system.controller.BankController
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/controller/BankController.java:[194,40] cannot find symbol
+[ERROR]   symbol:   method getFavoriteUserId()
+[ERROR]   location: variable fav of type com.bank.system.entity.FavoriteAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/controller/BankController.java:[208,14] cannot find symbol
+[ERROR]   symbol:   class User
+[ERROR]   location: class com.bank.system.controller.BankController
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[25,45] cannot find symbol
+[ERROR]   symbol:   method getLoginId()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.RegisterRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[37,9] cannot find symbol
+[ERROR]   symbol:   class User
+[ERROR]   location: class com.bank.system.service.BankService
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[37,25] cannot find symbol
+[ERROR]   symbol:   class User
+[ERROR]   location: class com.bank.system.service.BankService
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[39,28] cannot find symbol
+[ERROR]   symbol:   method getLoginId()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.RegisterRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[40,29] cannot find symbol
+[ERROR]   symbol:   method getRealName()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.RegisterRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[41,29] cannot find symbol
+[ERROR]   symbol:   method getPassword()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.RegisterRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[47,19] cannot find symbol
+[ERROR]   symbol:   method setId(java.lang.String)
+[ERROR]   location: variable subAccount of type com.bank.system.entity.SubAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[49,19] cannot find symbol
+[ERROR]   symbol:   method setName(java.lang.String)
+[ERROR]   location: variable subAccount of type com.bank.system.entity.SubAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[50,34] cannot find symbol
+[ERROR]   symbol:   method getInitialDeposit()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.RegisterRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[51,19] cannot find symbol
+[ERROR]   symbol:   method setColor(java.lang.String)
+[ERROR]   location: variable subAccount of type com.bank.system.entity.SubAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[58,9] cannot find symbol
+[ERROR]   symbol:   class User
+[ERROR]   location: class com.bank.system.service.BankService
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[58,53] cannot find symbol
+[ERROR]   symbol:   method getLoginId()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.LoginRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[61,43] cannot find symbol
+[ERROR]   symbol:   method getPassword()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.LoginRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[73,75] cannot find symbol
+[ERROR]   symbol:   method getSubAccountId()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[73,98] cannot find symbol
+[ERROR]   symbol:   method getUserId()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[76,41] cannot find symbol
+[ERROR]   symbol:   method getBalance()
+[ERROR]   location: variable subAccount of type com.bank.system.entity.SubAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[76,62] cannot find symbol
+[ERROR]   symbol:   method getAmount()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[80,31] cannot find symbol
+[ERROR]   symbol:   method getName()
+[ERROR]   location: variable subAccount of type com.bank.system.entity.SubAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[79,30] cannot find symbol
+[ERROR]   symbol:   method getUserId()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[79,53] cannot find symbol
+[ERROR]   symbol:   method getAmount()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[80,52] cannot find symbol
+[ERROR]   symbol:   method getSubAccountId()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[84,75] cannot find symbol
+[ERROR]   symbol:   method getSubAccountId()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[84,98] cannot find symbol
+[ERROR]   symbol:   method getUserId()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[87,23] cannot find symbol
+[ERROR]   symbol:   method getBalance()
+[ERROR]   location: variable subAccount of type com.bank.system.entity.SubAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[87,50] cannot find symbol
+[ERROR]   symbol:   method getAmount()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[91,41] cannot find symbol
+[ERROR]   symbol:   method getBalance()
+[ERROR]   location: variable subAccount of type com.bank.system.entity.SubAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[91,67] cannot find symbol
+[ERROR]   symbol:   method getAmount()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[95,30] cannot find symbol
+[ERROR]   symbol:   method getName()
+[ERROR]   location: variable subAccount of type com.bank.system.entity.SubAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[94,30] cannot find symbol
+[ERROR]   symbol:   method getUserId()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[94,53] cannot find symbol
+[ERROR]   symbol:   method getAmount()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[95,53] cannot find symbol
+[ERROR]   symbol:   method getSubAccountId()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[99,34] cannot find symbol
+[ERROR]   symbol:   method getRecipientAccountNumber()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[101,36] cannot find symbol
+[ERROR]   symbol:   method getUserId()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[105,9] cannot find symbol
+[ERROR]   symbol:   class User
+[ERROR]   location: class com.bank.system.service.BankService
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[108,96] cannot find symbol
+[ERROR]   symbol:   method getUserId()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[112,26] cannot find symbol
+[ERROR]   symbol:   method getBalance()
+[ERROR]   location: variable senderAccount of type com.bank.system.entity.SubAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[112,53] cannot find symbol
+[ERROR]   symbol:   method getAmount()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[120,47] cannot find symbol
+[ERROR]   symbol:   method getBalance()
+[ERROR]   location: variable senderAccount of type com.bank.system.entity.SubAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[120,73] cannot find symbol
+[ERROR]   symbol:   method getAmount()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[121,53] cannot find symbol
+[ERROR]   symbol:   method getBalance()
+[ERROR]   location: variable recipientAccount of type com.bank.system.entity.SubAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[121,74] cannot find symbol
+[ERROR]   symbol:   method getAmount()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[126,16] cannot find symbol
+[ERROR]   symbol:   method isSaveAsFavorite()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[128,30] cannot find symbol
+[ERROR]   symbol:   method getUserId()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[129,16] cannot find symbol
+[ERROR]   symbol:   method setFavoriteUserId(java.lang.String)
+[ERROR]   location: variable fav of type com.bank.system.entity.FavoriteAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[134,30] cannot find symbol
+[ERROR]   symbol:   method getUserId()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[134,55] cannot find symbol
+[ERROR]   symbol:   method getAmount()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[137,32] cannot find symbol
+[ERROR]   symbol:   method getUserId()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[137,101] cannot find symbol
+[ERROR]   symbol:   method getUserId()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[137,75] cannot find symbol
+[ERROR]   symbol:   method getUserId()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[138,52] cannot find symbol
+[ERROR]   symbol:   method getAmount()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[144,11] cannot find symbol
+[ERROR]   symbol:   method setId(java.lang.String)
+[ERROR]   location: variable tx of type com.bank.system.entity.Transaction
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[145,9] cannot find symbol
+[ERROR]   symbol:   class User
+[ERROR]   location: class com.bank.system.service.BankService
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[145,25] cannot find symbol
+[ERROR]   symbol:   class User
+[ERROR]   location: class com.bank.system.service.BankService
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[148,11] cannot find symbol
+[ERROR]   symbol:   method setType(java.lang.String)
+[ERROR]   location: variable tx of type com.bank.system.entity.Transaction
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[149,11] cannot find symbol
+[ERROR]   symbol:   method setAmount(java.math.BigDecimal)
+[ERROR]   location: variable tx of type com.bank.system.entity.Transaction
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[150,11] cannot find symbol
+[ERROR]   symbol:   method setNote(java.lang.String)
+[ERROR]   location: variable tx of type com.bank.system.entity.Transaction
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[151,11] cannot find symbol
+[ERROR]   symbol:   method setTime(java.lang.String)
+[ERROR]   location: variable tx of type com.bank.system.entity.Transaction
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[152,11] cannot find symbol
+[ERROR]   symbol:   method setTimestamp(long)
+[ERROR]   location: variable tx of type com.bank.system.entity.Transaction
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[153,11] cannot find symbol
+[ERROR]   symbol:   method setSubAccountId(java.lang.String)
+[ERROR]   location: variable tx of type com.bank.system.entity.Transaction
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[162,12] cannot find symbol
+[ERROR]   symbol:   method setId(java.lang.String)
+[ERROR]   location: variable sub of type com.bank.system.entity.SubAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[163,9] cannot find symbol
+[ERROR]   symbol:   class User
+[ERROR]   location: class com.bank.system.service.BankService
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[163,25] cannot find symbol
+[ERROR]   symbol:   class User
+[ERROR]   location: class com.bank.system.service.BankService
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[164,23] cannot find symbol
+[ERROR]   symbol:   method getUserId()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.SubAccountRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[166,12] cannot find symbol
+[ERROR]   symbol:   method setName(req.getNam[...]6236")
+[ERROR]   location: variable sub of type com.bank.system.entity.SubAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[166,24] cannot find symbol
+[ERROR]   symbol:   method getName()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.SubAccountRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[166,48] cannot find symbol
+[ERROR]   symbol:   method getName()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.SubAccountRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[167,12] cannot find symbol
+[ERROR]   symbol:   method setBalance(java.math.BigDecimal)
+[ERROR]   location: variable sub of type com.bank.system.entity.SubAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[168,12] cannot find symbol
+[ERROR]   symbol:   method setColor(req.getCol[...]82f6")
+[ERROR]   location: variable sub of type com.bank.system.entity.SubAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[168,25] cannot find symbol
+[ERROR]   symbol:   method getColor()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.SubAccountRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[168,50] cannot find symbol
+[ERROR]   symbol:   method getColor()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.SubAccountRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[177,16] cannot find symbol
+[ERROR]   symbol:   method getBalance()
+[ERROR]   location: variable sub of type com.bank.system.entity.SubAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[184,69] cannot find symbol
+[ERROR]   symbol:   method getFromSubAccountId()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[184,96] cannot find symbol
+[ERROR]   symbol:   method getUserId()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[185,67] cannot find symbol
+[ERROR]   symbol:   method getToSubAccountId()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[185,92] cannot find symbol
+[ERROR]   symbol:   method getUserId()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[187,17] cannot find symbol
+[ERROR]   symbol:   method getBalance()
+[ERROR]   location: variable from of type com.bank.system.entity.SubAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[187,44] cannot find symbol
+[ERROR]   symbol:   method getAmount()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[189,29] cannot find symbol
+[ERROR]   symbol:   method getBalance()
+[ERROR]   location: variable from of type com.bank.system.entity.SubAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[189,55] cannot find symbol
+[ERROR]   symbol:   method getAmount()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[190,25] cannot find symbol
+[ERROR]   symbol:   method getBalance()
+[ERROR]   location: variable to of type com.bank.system.entity.SubAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[190,46] cannot find symbol
+[ERROR]   symbol:   method getAmount()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[196,24] cannot find symbol
+[ERROR]   symbol:   method getName()
+[ERROR]   location: variable from of type com.bank.system.entity.SubAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[196,48] cannot find symbol
+[ERROR]   symbol:   method getName()
+[ERROR]   location: variable to of type com.bank.system.entity.SubAccount
+[ERROR] /D:/atms/bank-system/backend-java/src/main/java/com/bank/system/service/BankService.java:[196,74] cannot find symbol
+[ERROR]   symbol:   method getAmount()
+[ERROR]   location: variable req of type com.bank.system.dto.BankDTOs.TransactionRequest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

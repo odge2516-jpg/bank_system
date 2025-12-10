@@ -7,7 +7,7 @@
       <div class="chart-card">
         <h4>收支趨勢（最近7天）</h4>
         <div class="chart-wrapper">
-          <Line v-if="lineChartData" :data="lineChartData" :options="lineChartOptions" />
+          <LineChart v-if="lineChartData" :data="lineChartData" :options="lineChartOptions" />
           <div v-else class="no-data">暫無交易資料</div>
         </div>
       </div>
@@ -63,7 +63,7 @@
 </template>
 
 <script>
-import { Line, Doughnut, Bar } from 'vue-chartjs'
+import { Line as LineChart, Doughnut, Bar } from 'vue-chartjs'
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -94,7 +94,7 @@ ChartJS.register(
 export default {
   name: 'TransactionCharts',
   components: {
-    Line,
+    LineChart,
     Doughnut,
     Bar,
   },
