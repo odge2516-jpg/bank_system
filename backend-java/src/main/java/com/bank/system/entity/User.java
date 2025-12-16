@@ -22,11 +22,13 @@ public class User {
     @Column(nullable = false)
     private String password;
 
+    @Enumerated(EnumType.STRING)
     @Column(columnDefinition = "ENUM('user', 'admin') DEFAULT 'user'")
-    private String role;
+    private com.bank.system.enums.UserRole role;
 
+    @Enumerated(EnumType.STRING)
     @Column(columnDefinition = "ENUM('active', 'frozen') DEFAULT 'active'")
-    private String status;
+    private com.bank.system.enums.UserStatus status;
 
     @Column(name = "created_at", insertable = false, updatable = false)
     private LocalDateTime createdAt;
