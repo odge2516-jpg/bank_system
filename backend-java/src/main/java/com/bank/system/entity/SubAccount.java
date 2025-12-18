@@ -13,6 +13,7 @@ public class SubAccount {
     @Column(length = 50)
     private String id;
 
+    @com.fasterxml.jackson.annotation.JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;

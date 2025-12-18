@@ -8,4 +8,5 @@ import java.util.List;
 public interface FavoriteAccountRepository extends JpaRepository<FavoriteAccount, FavoriteAccountId> {
     List<FavoriteAccount> findByUserId(String userId);
     void deleteByUserIdAndFavoriteUserId(String userId, String favoriteUserId);
+    void deleteByUserId(String userId);
 }

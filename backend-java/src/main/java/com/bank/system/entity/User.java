@@ -19,6 +19,7 @@ public class User {
     @Column(name = "real_name", nullable = false, length = 100)
     private String realName;
 
+    @com.fasterxml.jackson.annotation.JsonIgnore
     @Column(nullable = false)
     private String password;
 
@@ -33,6 +34,8 @@ public class User {
     @Column(name = "created_at", insertable = false, updatable = false)
     private LocalDateTime createdAt;
     
+    @com.fasterxml.jackson.annotation.JsonIgnore
+    @lombok.ToString.Exclude
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<SubAccount> subAccounts;
 }

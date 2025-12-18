@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Locale;
-import java.util.Random;
+import java.util.UUID;
 
 @Service
 @Transactional
@@ -30,6 +30,13 @@ public class TransactionService {
     @Autowired private FavoriteAccountRepository favoriteAccountRepository;
 
     public void deposit(TransactionRequest req) {
+        // Check if user account is frozen
+        User user = userRepository.findById(req.getUserId())
+                .orElseThrow(() -> new RuntimeException("用戶不存在"));
+        if (user.getStatus() == com.bank.system.enums.UserStatus.frozen) {
+            throw new RuntimeException("帳戶已被凍結");
+        }
+        
         SubAccount subAccount = subAccountRepository.findByIdAndUserId(req.getSubAccountId(), req.getUserId())
                 .orElseThrow(() -> new RuntimeException("子帳戶不存在"));
 
@@ -41,6 +48,13 @@ public class TransactionService {
     }
 
     public void withdraw(TransactionRequest req) {
+        // Check if user account is frozen
+        User user = userRepository.findById(req.getUserId())
+                .orElseThrow(() -> new RuntimeException("用戶不存在"));
+        if (user.getStatus() == com.bank.system.enums.UserStatus.frozen) {
+            throw new RuntimeException("帳戶已被凍結");
+        }
+        
         SubAccount subAccount = subAccountRepository.findByIdAndUserId(req.getSubAccountId(), req.getUserId())
                 .orElseThrow(() -> new RuntimeException("子帳戶不存在"));
 
@@ -60,6 +74,13 @@ public class TransactionService {
         
         if (cleanAccount.equals(req.getUserId())) {
             throw new RuntimeException("不能轉帳給自己");
+        }
+        
+        // Check if sender account is frozen
+        User sender = userRepository.findById(req.getUserId())
+                .orElseThrow(() -> new RuntimeException("用戶不存在"));
+        if (sender.getStatus() == com.bank.system.enums.UserStatus.frozen) {
+            throw new RuntimeException("帳戶已被凍結");
         }
 
         User recipient = userRepository.findById(cleanAccount)
@@ -117,7 +138,7 @@ public class TransactionService {
 
     private void recordTransaction(String userId, String type, BigDecimal amount, String note, String subAccountId) {
         Transaction tx = new Transaction();
-        tx.setId("TXN" + System.currentTimeMillis() + new Random().nextInt(1000));
+        tx.setId(UUID.randomUUID().toString());
         User user = new User();
         user.setId(userId);
         tx.setUser(user);
