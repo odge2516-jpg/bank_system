@@ -18,14 +18,14 @@
 [快速開始]
 
 1. 資料庫設定
-   請建立一個名為 bank_system 的 MySQL 資料庫，並確認 backend-java/src/main/resources/application.properties 中的連線設定正確。
+   請建立一個名為 bank_system 的 MySQL 資料庫，並確認 backend/src/main/resources/application.properties 中的連線設定正確。
 
 2. 啟動後端
-   進入 backend-java 資料夾，執行 ./mvnw spring-boot:run
+   進入 backend 資料夾，執行 mvn spring-boot:run
    伺服器預設運行於 http://localhost:8080
 
 3. 啟動前端
-   在根目錄執行 npm install 後，執行 npm run dev
+   進入 frontend 資料夾，由執行 npm install 後，執行 npm run dev
    客戶端預設運行於 http://localhost:5173
 
 [預設帳號]
