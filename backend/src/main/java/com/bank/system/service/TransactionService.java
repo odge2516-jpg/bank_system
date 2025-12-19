@@ -13,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -40,7 +39,7 @@ public class TransactionService {
         SubAccount subAccount = subAccountRepository.findByIdAndUserId(req.getSubAccountId(), req.getUserId())
                 .orElseThrow(() -> new RuntimeException("子帳戶不存在"));
 
-        subAccount.setBalance(subAccount.getBalance().add(req.getAmount()));
+        subAccount.setBalance(subAccount.getBalance() + req.getAmount());
         subAccountRepository.save(subAccount);
 
         recordTransaction(req.getUserId(), "存款", req.getAmount(), 
@@ -58,14 +57,14 @@ public class TransactionService {
         SubAccount subAccount = subAccountRepository.findByIdAndUserId(req.getSubAccountId(), req.getUserId())
                 .orElseThrow(() -> new RuntimeException("子帳戶不存在"));
 
-        if (subAccount.getBalance().compareTo(req.getAmount()) < 0) {
+        if (subAccount.getBalance() < req.getAmount()) {
             throw new RuntimeException("子帳戶餘額不足");
         }
 
-        subAccount.setBalance(subAccount.getBalance().subtract(req.getAmount()));
+        subAccount.setBalance(subAccount.getBalance() - req.getAmount());
         subAccountRepository.save(subAccount);
 
-        recordTransaction(req.getUserId(), "提款", req.getAmount().negate(), 
+        recordTransaction(req.getUserId(), "提款", -req.getAmount(), 
             "從「" + subAccount.getName() + "」提領", req.getSubAccountId());
     }
 
@@ -90,7 +89,7 @@ public class TransactionService {
         if (senderAccounts.isEmpty()) throw new RuntimeException("找不到付款帳戶");
         SubAccount senderAccount = senderAccounts.get(0);
 
-        if (senderAccount.getBalance().compareTo(req.getAmount()) < 0) {
+        if (senderAccount.getBalance() < req.getAmount()) {
             throw new RuntimeException("餘額不足");
         }
 
@@ -98,8 +97,8 @@ public class TransactionService {
         if (recipientAccounts.isEmpty()) throw new RuntimeException("找不到收款帳戶");
         SubAccount recipientAccount = recipientAccounts.get(0);
 
-        senderAccount.setBalance(senderAccount.getBalance().subtract(req.getAmount()));
-        recipientAccount.setBalance(recipientAccount.getBalance().add(req.getAmount()));
+        senderAccount.setBalance(senderAccount.getBalance() - req.getAmount());
+        recipientAccount.setBalance(recipientAccount.getBalance() + req.getAmount());
         
         subAccountRepository.save(senderAccount);
         subAccountRepository.save(recipientAccount);
@@ -112,7 +111,7 @@ public class TransactionService {
         }
 
         String maskAccount = cleanAccount.substring(0, 4) + "****" + cleanAccount.substring(cleanAccount.length() - 4);
-        recordTransaction(req.getUserId(), "轉帳支出", req.getAmount().negate(), 
+        recordTransaction(req.getUserId(), "轉帳支出", -req.getAmount(), 
             "轉給 " + maskAccount, null);
 
         String maskSender = req.getUserId().substring(0, 4) + "****" + req.getUserId().substring(req.getUserId().length() - 4);
@@ -124,19 +123,19 @@ public class TransactionService {
         SubAccount from = subAccountRepository.findByIdAndUserId(req.getFromSubAccountId(), req.getUserId()).orElseThrow();
         SubAccount to = subAccountRepository.findByIdAndUserId(req.getToSubAccountId(), req.getUserId()).orElseThrow();
         
-        if (from.getBalance().compareTo(req.getAmount()) < 0) throw new RuntimeException("子帳戶餘額不足");
+        if (from.getBalance() < req.getAmount()) throw new RuntimeException("子帳戶餘額不足");
         
-        from.setBalance(from.getBalance().subtract(req.getAmount()));
-        to.setBalance(to.getBalance().add(req.getAmount()));
+        from.setBalance(from.getBalance() - req.getAmount());
+        to.setBalance(to.getBalance() + req.getAmount());
         
         subAccountRepository.save(from);
         subAccountRepository.save(to);
         
-        recordTransaction(req.getUserId(), "內部轉帳", BigDecimal.ZERO, 
+        recordTransaction(req.getUserId(), "內部轉帳", 0L, 
             "從「" + from.getName() + "」轉至「" + to.getName() + "」NT$ " + req.getAmount(), null);
     }
 
-    private void recordTransaction(String userId, String type, BigDecimal amount, String note, String subAccountId) {
+    private void recordTransaction(String userId, String type, Long amount, String note, String subAccountId) {
         Transaction tx = new Transaction();
         tx.setId(UUID.randomUUID().toString());
         User user = new User();

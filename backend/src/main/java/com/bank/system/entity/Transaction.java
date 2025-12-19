@@ -2,7 +2,6 @@ package com.bank.system.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import java.math.BigDecimal;
 
 @Data
 @Entity
@@ -20,8 +19,8 @@ public class Transaction {
     @Column(nullable = false, length = 20)
     private String type;
 
-    @Column(nullable = false, precision = 15, scale = 2)
-    private BigDecimal amount;
+    @Column(nullable = false)
+    private Long amount;
 
     @Column(columnDefinition = "TEXT")
     private String note;

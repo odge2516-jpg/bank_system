@@ -1,7 +1,6 @@
 package com.bank.system.dto;
 
 import lombok.Data;
-import java.math.BigDecimal;
 
 public class BankDTOs {
     @Data
@@ -9,7 +8,7 @@ public class BankDTOs {
         private String realName;
         private String loginId;
         private String password;
-        private BigDecimal initialDeposit;
+        private Long initialDeposit;
     }
 
     @Data
@@ -21,7 +20,7 @@ public class BankDTOs {
     @Data
     public static class TransactionRequest {
         private String userId;
-        private BigDecimal amount;
+        private Long amount;
         private String subAccountId;
         // For transfer
         private String recipientAccountNumber;
@@ -40,7 +39,7 @@ public class BankDTOs {
     
     @Data
     public static class BalanceUpdateRequest {
-        private BigDecimal newBalance;
+        private Long newBalance;
     }
     
     @Data

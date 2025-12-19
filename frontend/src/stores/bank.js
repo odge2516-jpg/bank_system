@@ -71,7 +71,10 @@ export const useBankStore = defineStore('bank', {
 
         // 計算總餘額
         if (data.user.subAccounts && data.user.subAccounts.length > 0) {
-          data.user.balance = data.user.subAccounts.reduce((sum, sub) => sum + sub.balance, 0)
+          data.user.balance = data.user.subAccounts.reduce(
+            (sum, sub) => sum + Math.round(sub.balance),
+            0,
+          )
         }
 
         this.currentUser = data.user

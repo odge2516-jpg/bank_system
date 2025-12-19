@@ -11,8 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.math.BigDecimal;
-
 @Service
 @Transactional
 public class AccountService {
@@ -27,7 +25,7 @@ public class AccountService {
         user.setId(req.getUserId());
         sub.setUser(user);
         sub.setName(req.getName() != null ? req.getName() : "新帳戶");
-        sub.setBalance(BigDecimal.ZERO);
+        sub.setBalance(0L);
         sub.setColor(req.getColor() != null ? req.getColor() : "#3b82f6");
         return subAccountRepository.save(sub);
     }
@@ -37,7 +35,7 @@ public class AccountService {
         if (count <= 1) throw new RuntimeException("至少需要保留一個子帳戶");
         
         SubAccount sub = subAccountRepository.findById(subAccountId).orElseThrow();
-        if (sub.getBalance().compareTo(BigDecimal.ZERO) > 0) {
+        if (sub.getBalance() > 0L) {
             throw new RuntimeException("請先將此帳戶餘額轉出或提領完畢");
         }
         subAccountRepository.delete(sub);

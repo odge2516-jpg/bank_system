@@ -12,7 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
-import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -48,9 +48,9 @@ public class AdminController {
             
             // Calculate balance from sub-accounts
             List<SubAccount> subAccounts = subAccountRepository.findByUserIdOrderByCreatedAt(user.getId());
-            BigDecimal totalBalance = subAccounts.stream()
+            Long totalBalance = subAccounts.stream()
                     .map(SubAccount::getBalance)
-                    .reduce(BigDecimal.ZERO, BigDecimal::add);
+                    .reduce(0L, Long::sum);
             userMap.put("balance", totalBalance);
             
             result.add(userMap);

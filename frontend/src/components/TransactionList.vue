@@ -39,8 +39,8 @@ export default {
   methods: {
     formatAmount(amount) {
       return amount.toLocaleString('zh-TW', {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
       })
     },
   },

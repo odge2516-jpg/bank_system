@@ -45,8 +45,8 @@ export default {
     formatAmount(amount) {
       if (amount === undefined || amount === null) return '0.00'
       return amount.toLocaleString('zh-TW', {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
       })
     },
     formatAccountNumber(accountNumber) {

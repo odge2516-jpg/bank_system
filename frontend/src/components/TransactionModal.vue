@@ -66,13 +66,7 @@
 
       <div class="form-group">
         <label>金額</label>
-        <input
-          v-model="localAmount"
-          type="number"
-          min="0.01"
-          step="0.01"
-          placeholder="請輸入金額"
-        />
+        <input v-model="localAmount" type="number" min="1" step="1" placeholder="請輸入金額" />
       </div>
 
       <div class="modal-actions">
@@ -154,7 +148,7 @@ export default {
     },
     handleSubmit() {
       this.$emit('submit', {
-        amount: this.localAmount,
+        amount: Math.floor(this.localAmount),
         recipientAccount: this.localRecipientAccount,
         saveAsFavorite: this.saveAsFavorite,
         subAccountId: this.selectedSubAccount,
@@ -162,8 +156,8 @@ export default {
     },
     formatSubAccountBalance(balance) {
       return balance.toLocaleString('zh-TW', {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
       })
     },
   },

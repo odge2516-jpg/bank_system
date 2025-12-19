@@ -2,7 +2,6 @@ package com.bank.system.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
@@ -21,8 +20,8 @@ public class SubAccount {
     @Column(nullable = false, length = 50)
     private String name;
 
-    @Column(precision = 15, scale = 2)
-    private BigDecimal balance;
+    @Column
+    private Long balance;
 
     @Column(length = 7)
     private String color;
