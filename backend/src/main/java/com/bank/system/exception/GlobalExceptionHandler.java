@@ -22,6 +22,6 @@ public class GlobalExceptionHandler {
     public ResponseEntity<Map<String, String>> handleException(Exception ex) {
         ex.printStackTrace(); // Log the error
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .body(Map.of("error", "系統發生未預期錯誤"));
+                .body(Map.of("error", "系統發生未預期錯誤: " + ex.getMessage()));
     }
 }

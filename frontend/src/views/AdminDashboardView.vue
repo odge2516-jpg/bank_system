@@ -73,6 +73,7 @@
               <td>{{ user.createdAt }}</td>
               <td>
                 <div class="action-buttons">
+                  <button class="btn-edit" @click="openEditModal(user)">編輯</button>
                   <button class="btn-toggle" :class="user.status" @click="toggleStatus(user.id)">
                     {{ user.status === 'active' ? '凍結' : '解凍' }}
                   </button>
@@ -116,6 +117,32 @@
         </table>
       </div>
     </div>
+
+    <!-- 編輯用戶彈窗 -->
+    <div v-if="showEditModal" class="modal">
+      <div class="modal-content">
+        <h3>編輯用戶資料</h3>
+        <div v-if="error" class="error-message">{{ error }}</div>
+        <div class="form-group">
+          <label>銀行帳號</label>
+          <input type="text" :value="formatAccountNumber(editingUser.id)" disabled />
+        </div>
+        <div class="form-group">
+          <label>真實姓名</label>
+          <input type="text" v-model="editingUser.realName" placeholder="請輸入真實姓名" />
+        </div>
+        <div class="form-group">
+          <label>登入帳號</label>
+          <input type="text" v-model="editingUser.loginId" placeholder="請輸入登入帳號" />
+        </div>
+        <div class="modal-actions">
+          <button class="btn btn-secondary" @click="showEditModal = false">取消</button>
+          <button class="btn" @click="handleUpdateUser" :disabled="isUpdating">
+            {{ isUpdating ? '儲存中...' : '儲存變更' }}
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -130,6 +157,10 @@ export default {
       activeTab: 'users',
       allUsers: [],
       allTransactions: [],
+      showEditModal: false,
+      editingUser: null,
+      error: '',
+      isUpdating: false,
     }
   },
   computed: {
@@ -158,6 +189,7 @@ export default {
       'deleteUser',
       'getAllUsers',
       'getAllTransactions',
+      'updateUser',
     ]),
 
     async loadData() {
@@ -212,6 +244,36 @@ export default {
         } catch (error) {
           alert(error.message)
         }
+      }
+    },
+    openEditModal(user) {
+      this.editingUser = {
+        id: user.id,
+        realName: user.realName,
+        loginId: user.loginId,
+      }
+      this.error = ''
+      this.showEditModal = true
+    },
+    async handleUpdateUser() {
+      if (!this.editingUser.realName.trim() || !this.editingUser.loginId.trim()) {
+        this.error = '欄位不能為空'
+        return
+      }
+
+      this.isUpdating = true
+      this.error = ''
+      try {
+        await this.updateUser(this.editingUser.id, {
+          realName: this.editingUser.realName,
+          loginId: this.editingUser.loginId,
+        })
+        this.showEditModal = false
+        await this.loadData()
+      } catch (err) {
+        this.error = err.message
+      } finally {
+        this.isUpdating = false
       }
     },
   },

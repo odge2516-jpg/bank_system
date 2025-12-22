@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080/api'
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8081/api'
 
 export const useBankStore = defineStore('bank', {
   state: () => ({
@@ -314,6 +314,29 @@ export const useBankStore = defineStore('bank', {
       } catch (error) {
         console.error('獲取所有用戶失敗:', error)
         return []
+      }
+    },
+
+    async updateUser(userId, userData) {
+      try {
+        const response = await fetch(`${API_URL}/admin/users/${userId}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+            ...(this.authToken && { Authorization: `Bearer ${this.authToken}` }),
+          },
+          body: JSON.stringify(userData),
+        })
+
+        const data = await response.json()
+
+        if (!response.ok) {
+          throw new Error(data.error || '更新用戶失敗')
+        }
+
+        return data
+      } catch (error) {
+        throw new Error(error.message || '更新用戶失敗')
       }
     },
 

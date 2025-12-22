@@ -119,5 +119,52 @@ public class AdminController {
         
         return ResponseEntity.ok(Map.of("success", true, "status", user.getStatus()));
     }
+
+    @PutMapping("/users/{userId}")
+    public ResponseEntity<?> updateUser(@PathVariable String userId, @RequestBody Map<String, String> updates) {
+        try {
+            User user = userRepository.findById(userId).orElse(null);
+            if (user == null) {
+                return ResponseEntity.status(404).body(Map.of("error", "用戶不存在"));
+            }
+
+            // Don't allow editing admin accounts via this endpoint
+            if (user.getRole() == com.bank.system.enums.UserRole.admin) {
+                return ResponseEntity.status(403).body(Map.of("error", "無法編輯管理員帳號"));
+            }
+
+            String newRealName = updates.get("realName");
+            String newLoginId = updates.get("loginId");
+
+            if (newRealName != null && !newRealName.trim().isEmpty()) {
+                user.setRealName(newRealName.trim());
+            }
+
+            if (newLoginId != null && !newLoginId.trim().isEmpty()) {
+                String loginId = newLoginId.trim();
+                // Check if loginId is changed and if it's unique
+                if (!loginId.equals(user.getLoginId())) {
+                    if (userRepository.findByLoginId(loginId).isPresent()) {
+                        return ResponseEntity.status(400).body(Map.of("error", "登入帳號已存在"));
+                    }
+                    user.setLoginId(loginId);
+                }
+            }
+
+            userRepository.save(user);
+            
+            // Return a clean map to avoid recursion/serialization issues if any
+            Map<String, Object> result = new HashMap<>();
+            result.put("success", true);
+            result.put("userId", user.getId());
+            result.put("loginId", user.getLoginId());
+            result.put("realName", user.getRealName());
+            
+            return ResponseEntity.ok(result);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(500).body(Map.of("error", "DEBUG: " + e.toString()));
+        }
+    }
 }
 
