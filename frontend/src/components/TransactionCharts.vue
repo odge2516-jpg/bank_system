@@ -264,10 +264,7 @@ export default {
   },
   methods: {
     formatAmount(amount) {
-      return Math.abs(amount).toLocaleString('zh-TW', {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
-      })
+      return Math.abs(amount).toLocaleString('zh-TW')
     },
     formatDate(date) {
       return `${date.getMonth() + 1}/${date.getDate()}`

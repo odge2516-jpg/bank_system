@@ -140,8 +140,8 @@
           <input
             v-model.number="transferAmount"
             type="number"
-            min="0.01"
-            step="0.01"
+            min="1"
+            step="1"
             placeholder="請輸入轉帳金額"
           />
         </div>
@@ -200,10 +200,7 @@ export default {
     ]),
 
     formatAmount(amount) {
-      return amount.toLocaleString('zh-TW', {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
-      })
+      return Math.floor(amount).toLocaleString('zh-TW')
     },
 
     closeAddModal() {
