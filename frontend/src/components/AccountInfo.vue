@@ -7,7 +7,11 @@
     </div>
     <div class="account-info">
       <p><strong>戶名：</strong>{{ currentUser.realName }}</p>
-      <p><strong>銀行帳號：</strong>{{ formatAccountNumber(currentUser.id) }}</p>
+      <p>
+        <strong>銀行帳號：</strong>{{ formatAccountNumber(currentUser.id) }}
+        <button class="btn-copy" @click="copyAccount" title="複製帳號">📋</button>
+        <span v-if="copyMessage" class="copy-feedback">{{ copyMessage }}</span>
+      </p>
       <p><strong>開戶時間：</strong>{{ currentUser.createdAt }}</p>
     </div>
     <div class="transaction-actions">
@@ -26,6 +30,11 @@ export default {
       type: Object,
       required: true,
     },
+  },
+  data() {
+    return {
+      copyMessage: '',
+    }
   },
   emits: ['open-modal'],
   computed: {
@@ -57,6 +66,19 @@ export default {
         )
       }
       return accountNumber
+    },
+    async copyAccount() {
+      if (!this.currentUser || !this.currentUser.id) return
+      try {
+        await navigator.clipboard.writeText(this.currentUser.id.replace(/[-\s]/g, ''))
+        this.copyMessage = '已複製'
+        setTimeout(() => {
+          this.copyMessage = ''
+        }, 2000)
+      } catch (err) {
+        console.error('複製失敗:', err)
+        this.copyMessage = '複製失敗'
+      }
     },
   },
 }
@@ -151,5 +173,27 @@ export default {
 
 .action-btn.transfer:hover {
   background: #1d4ed8;
+}
+
+.btn-copy {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 8px;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.btn-copy:hover {
+  background: #e2e8f0;
+}
+
+.copy-feedback {
+  font-size: 12px;
+  color: #10b981;
+  margin-left: 8px;
+  font-weight: 600;
 }
 </style>

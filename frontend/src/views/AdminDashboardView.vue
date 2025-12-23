@@ -103,7 +103,7 @@
           </thead>
           <tbody>
             <tr v-for="transaction in allTransactions" :key="transaction.id">
-              <td>{{ transaction.id.substring(0, 15) }}...</td>
+              <td>{{ transaction.id }}</td>
               <td>{{ formatAccountNumber(transaction.userId) }}</td>
               <td>{{ getUserName(transaction.userId) }}</td>
               <td>{{ transaction.type }}</td>
